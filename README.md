@@ -1,46 +1,91 @@
-# Getting Started with Create React App
+# Aula prática - 26-03-2024
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## O Cenário
+Ao acessar uma API pública que fornece dados sobre os livros de Stephen King, você se conecta a uma vasta biblioteca digital. Esta API serve como um portal, permitindo que você consulte e recupere informações detalhadas das obras deste renomado autor. De sinopses a avaliações, passando por informações sobre publicações e edições, a API oferece uma maneira eficiente e direta de explorar o universo literário de Stephen King. Seja para fins de pesquisa, para descobrir seu próximo livro favorito ou simplesmente para mergulhar mais profundamente na obra deste mestre do suspense e do horror, essa API pública se torna uma ferramenta indispensável para fãs e estudiosos da literatura de King.
 
-## Available Scripts
+## Do desafio
+1. Criar um projeto react para consumir dados da API (https://stephen-king-api.onrender.com/api/books)
+2. Criar componentes do tipo master-detail para apresentar as informações
 
-In the project directory, you can run:
+## Passos a serem executados
+1. Criar a estrutura do projeto
+```shell
+npx create-react-app prime-react-book --template typescript
+```
+2. Entrar na pasta do projeto
+```shell
+cd prime-react-book
+```
+3. Instalar as dependências
+```shell
+npm install primereact primeicons axios styled-components
+npm i --save-dev @types/styled-components
+npm i react-router-dom
+npm i --save-dev @types/react-router-dom
+npm install --save react-router-dom@5.2.0
+```
+4. Criar os componentes necessários para a aplicação (master-detail)
+```shell
+npx generate-react-cli component BookList
+npx generate-react-cli component BookDetail
+#Opcional
+npx generate-react-cli component Menu
+```
+4.1 Criar o component BookList
+```shell
+npx generate-react-cli component BookList
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+It looks like this is the first time that you're running generate-react-cli within this project.
 
-### `npm start`
+Answer a few questions to customize generate-react-cli for your project needs (this will create a "generate-react-cli.json" config file on the root level of this project).
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+? Does this project use TypeScript? Yes
+? Does this project use styled-components? No
+? Does this project use CSS modules? Yes
+? Does this project use a CSS Preprocessor? css
+? What testing library does your project use? Testing Library
+? Set the default path directory to where your components will be generated in? src/components
+? Would you like to create a corresponding stylesheet file with each component you generate? Yes
+? Would you like to create a corresponding test file with each component you generate? Yes
+? Would you like to create a corresponding story with each component you generate? No
+? Would you like to create a corresponding lazy file (a file that lazy-loads your component out of 
+the box and enables code splitting: https://reactjs.org/docs/code-splitting.html#code-splitting) 
+with each component you generate? Yes
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The "generate-react-cli.json" config file has been successfully created on the root level of your project.
 
-### `npm test`
+You can always go back and update it as needed.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Happy Hacking!
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+BookList.tsx was successfully created at src/components/BookList/BookList.tsx
+BookList.module.css was successfully created at src/components/BookList/BookList.module.css
+BookList.test.tsx was successfully created at src/components/BookList/BookList.test.tsx
+BookList.lazy.tsx was successfully created at src/components/BookList/BookList.lazy.tsx
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4.2  Criar o component BookDetail
+```shell
+npx generate-react-cli component BookDetail
+BookDetail.tsx was successfully created at src/components/BookDetail/BookDetail.tsx
+BookDetail.module.css was successfully created at src/components/BookDetail/BookDetail.module.css
+BookDetail.test.tsx was successfully created at src/components/BookDetail/BookDetail.test.tsx
+BookDetail.lazy.tsx was successfully created at src/components/BookDetail/BookDetail.lazy.tsx
+```
 
-### `npm run eject`
+4.3 Criar componente Menu
+```shell
+npx generate-react-cli component Menu
+Menu.tsx was successfully created at src/components/Menu/Menu.tsx
+Menu.module.css was successfully created at src/components/Menu/Menu.module.css
+Menu.test.tsx was successfully created at src/components/Menu/Menu.test.tsx
+Menu.lazy.tsx was successfully created at src/components/Menu/Menu.lazy.tsx
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5.  Inserir as componentes dentro do componente principal (App.tsx)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Para cada componente criar inserir a lib para consumir dados da API(axios)
