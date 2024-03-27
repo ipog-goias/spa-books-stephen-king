@@ -84,8 +84,74 @@ Menu.module.css was successfully created at src/components/Menu/Menu.module.css
 Menu.test.tsx was successfully created at src/components/Menu/Menu.test.tsx
 Menu.lazy.tsx was successfully created at src/components/Menu/Menu.lazy.tsx
 ```
-
 5.  Inserir as componentes dentro do componente principal (App.tsx)
+Exemplo de configuração do arquivo
+```typescript
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import BookList from './components/BookList/BookList';
+import BookDetail from './components/BookDetail/BookDetail';
 
+function App() {
+  return (
+    <div>
+    <BookList></BookList>
+    <BookDetail></BookDetail>
+    </div>
+  );
+}
+
+export default App;
+```
+
+substituir para:
+```typescript
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import BookList from './components/BookList/BookList';
+import BookDetail from './components/BookDetail/BookDetail';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={BookList} />
+          <Route path="/book/:id" component={BookDetail} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+```
+
+6. Exemplo de estrutura para um componente React
+
+```typescript
+import React, { FC } from 'react';
+import styles from './BookList.module.css';
+
+
+const BookList = () => {
+
+  //entrada
+  //variáveis que serão utilizadas no componente
+
+  //processamento
+  //consumo do serviço (service ou API)
+
+  //saida
+  //retorno do template
+
+};
+
+export default BookList;
+```
 
 6. Para cada componente criar inserir a lib para consumir dados da API(axios)
