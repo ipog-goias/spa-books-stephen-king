@@ -10,8 +10,8 @@ export const BookService = {
          //componente que conecta no serviço(api) para acessar as informações
         return axios.get("/books")
         .then((response) => {
-            console.log(response.data.data);
-            return response.data.data
+            //console.log(response.data);
+            return response.data.data;
         });
     }
 }
